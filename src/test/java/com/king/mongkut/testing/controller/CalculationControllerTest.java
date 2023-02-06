@@ -22,7 +22,7 @@ class CalculationControllerTest {
     private CalculationController calculationController;
 
     @Test
-    void should_return_success_when_call_plus_with_number1_and_number2(){
+    void should_return_status_ok_when_call_plus_with_number1_and_number2(){
         when(calculationService.plus("1","2")).thenReturn(3);
 
         ResponseEntity<?> response = calculationController.plus("1", "2");
@@ -32,7 +32,7 @@ class CalculationControllerTest {
 
     }
     @Test
-    void should_return_error_when_call_plus_with_number1_and_number2() {
+    void should_return_status_bad_request_when_call_plus_with_number1_and_number2() {
         when(calculationService.plus("1","2")).thenThrow(new NumberFormatException("number wrong format"));
 
         ResponseEntity<?> response = calculationController.plus("1", "2");
