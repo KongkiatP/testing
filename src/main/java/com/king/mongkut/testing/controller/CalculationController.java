@@ -21,9 +21,9 @@ public class CalculationController {
             try {
                 int result = calculationService.plus(number1, number2);
                 return ResponseEntity.ok(result);
-            }catch (Exception ex){
+            } catch (Exception ex) {
                 ex.printStackTrace();
-                String error = String.format("%s : %s",ex.getCause(),ex.getMessage());
+                String error = String.format("%s : %s", ex.getCause(), ex.getMessage());
                 return ResponseEntity.badRequest().body(error);
             }
         }
@@ -33,10 +33,10 @@ public class CalculationController {
     public ResponseEntity<?> minus(@RequestParam String number1, @RequestParam String number2) {
         {
             int minus = calculationService.minus(number1, number2);
-            if(minus != -1) {
+            if (minus != -1) {
                 return ResponseEntity.ok(minus);
             } else {
-             return ResponseEntity.badRequest().body("something went wrong");
+                return ResponseEntity.badRequest().body("something went wrong");
             }
         }
     }
