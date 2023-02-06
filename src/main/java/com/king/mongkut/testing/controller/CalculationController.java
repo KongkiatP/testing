@@ -28,4 +28,16 @@ public class CalculationController {
             }
         }
     }
+
+    @GetMapping("/minus")
+    public ResponseEntity<?> minus(@RequestParam String number1, @RequestParam String number2) {
+        {
+            int minus = calculationService.minus(number1, number2);
+            if(minus != -1) {
+                return ResponseEntity.ok(minus);
+            } else {
+             return ResponseEntity.badRequest().body("something went wrong");
+            }
+        }
+    }
 }
