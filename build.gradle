@@ -1,0 +1,28 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.5.4'
+	id 'io.spring.dependency-management' version '1.1.0'
+	id 'org.flywaydb.flyway' version '6.4.3'
+}
+
+group = 'com.king.mongkut'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.flywaydb:flyway-core:6.4.3'
+
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	/* Mockito */
+	testImplementation "org.mockito:mockito-core:3.+"
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
