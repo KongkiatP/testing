@@ -3,10 +3,7 @@ package com.king.mongkut.testing.controller;
 import com.king.mongkut.testing.service.CalculationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class CalculationController {
@@ -18,10 +15,22 @@ public class CalculationController {
         this.calculationService = calculationService;
     }
 
-    @RequestMapping(value = "/plus", method = RequestMethod.GET)
+    @GetMapping("/plus")
     public ResponseEntity<?> plus(@RequestParam int number1) {
         {
             return ResponseEntity.ok("plus");
+        }
+    }
+
+    @GetMapping("/minus")
+    public ResponseEntity<?> minus(@RequestParam String number1, String number2) {
+        {
+            int minus = calculationService.minus(number1, number2);
+            if(minus != -1) {
+                return ResponseEntity.ok("plus");
+            } else {
+             return ResponseEntity.badRequest().body("something went wrong");
+            }
         }
     }
 }
