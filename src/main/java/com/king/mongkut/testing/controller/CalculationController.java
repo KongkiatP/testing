@@ -27,7 +27,7 @@ public class CalculationController {
         {
             int minus = calculationService.minus(number1, number2);
             if(minus != -1) {
-                return ResponseEntity.ok("plus");
+                return ResponseEntity.ok(minus);
             } else {
              return ResponseEntity.badRequest().body("something went wrong");
             }
