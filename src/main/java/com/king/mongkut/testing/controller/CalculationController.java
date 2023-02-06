@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-public class Calculation {
+public class CalculationController {
 
     @RequestMapping(value = "plus", method = RequestMethod.GET)
     public ResponseEntity<?> plus(@RequestBody NumberInput numberInput) {
