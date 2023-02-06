@@ -1,12 +1,11 @@
 package com.king.mongkut.testing.controller;
 
-import com.king.mongkut.testing.model.NumberInput;
 import com.king.mongkut.testing.service.CalculationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -19,10 +18,10 @@ public class CalculationController {
         this.calculationService = calculationService;
     }
 
-    @RequestMapping(value = "plus", method = RequestMethod.GET)
-    public ResponseEntity<?> plus(@RequestBody NumberInput numberInput) {
+    @RequestMapping(value = "/plus", method = RequestMethod.GET)
+    public ResponseEntity<?> plus(@RequestParam int number1) {
         {
-            return ResponseEntity.ok("login");
+            return ResponseEntity.ok("plus");
         }
     }
 }
